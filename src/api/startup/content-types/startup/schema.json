@@ -1,0 +1,66 @@
+{
+  "kind": "collectionType",
+  "collectionName": "startups",
+  "info": {
+    "singularName": "startup",
+    "pluralName": "startups",
+    "displayName": "Startup",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "description": {
+      "type": "text"
+    },
+    "raising_amount": {
+      "type": "biginteger"
+    },
+    "raising_type": {
+      "type": "enumeration",
+      "enum": [
+        "convertible",
+        "debt",
+        "equity"
+      ]
+    },
+    "equity_offered": {
+      "type": "decimal"
+    },
+    "industry": {
+      "type": "string"
+    },
+    "management_offered": {
+      "type": "boolean"
+    },
+    "raising_reason": {
+      "type": "text"
+    },
+    "team": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "plugin::users-permissions.user"
+    },
+    "dataroom": {
+      "type": "media",
+      "multiple": true,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "investments": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::investment.investment"
+    }
+  }
+}
